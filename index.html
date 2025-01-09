@@ -24,33 +24,78 @@
         /* Main Content */
         .content {
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column; /* Stack the paragraph-image pairs vertically */
+            align-items: center;
             margin: 20px;
         }
 
+        .paragraph-image-wrapper {
+            display: flex; /* Align paragraph and image side by side */
+            justify-content: flex-start; /* Align items to the left */
+            align-items: center;
+            margin-bottom: 20px; /* Space between pairs */
+            width: 100%; /* Make it take up full width of parent */
+            max-width: 800px; /* Max width for the paragraph wrapper */
+        }
+
         .paragraph {
-            flex: 1;
-            margin-right: 20px;
             background-color: #fff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Allow paragraph to take available space */
+            margin-right: 20px; /* Space between paragraph and image */
+            max-width: 600px; /* Limit paragraph width */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Ensure content takes up full height */
         }
 
         .paragraph p {
             line-height: 1.6;
-        }
-
-        .picture {
-            flex: 1;
-            text-align: center;
+            margin: 0; /* Remove any extra margin in the paragraph */
         }
 
         .picture img {
-            max-width: 100%;
+            height: 100%; /* Make the image height match the paragraph height */
+            width: auto; /* Maintain aspect ratio */
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media Queries for Mobile Devices */
+        @media (max-width: 768px) {
+            .paragraph-image-wrapper {
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 40px; /* Increase space between the paragraph-image pairs */
+            }
+
+            .paragraph {
+                margin-right: 20px; /* Keep space between the paragraph and the image */
+                max-width: 400px; /* Limit the paragraph width on small screens */
+            }
+
+            .picture img {
+                height: 100%; /* Image matches paragraph height */
+                max-width: 200px; /* Limit image width on mobile */
+                object-fit: cover; /* Ensure the image fills the space without distortion */
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 1.5rem; /* Reduce font size for smaller screens */
+                padding: 15px;
+            }
+
+            .paragraph {
+                padding: 15px; /* Reduce padding on small screens */
+            }
+
+            .picture img {
+                max-width: 150px; /* Further reduce image width for very small screens */
+            }
         }
     </style>
 </head>
@@ -61,15 +106,26 @@
 </header>
 
 <div class="content">
-    <!-- Paragraph Section -->
-    <div class="paragraph">
-        <p>Dear Liza,</p>
-        <p>I built this snowman to show you how much you mean to me, even from miles away. Just like this snowman, my feelings for you are built to last—even through the coldest winters. I hope it brings a smile to your face as much as you bring joy to my life. ❤️</p>
+    <!-- Paragraph and Image Pair 1 -->
+    <div class="paragraph-image-wrapper">
+        <div class="paragraph">
+            <p>Dear Liza,</p>
+            <p>I built this snowman to show you how much you mean to me. Just like this snowman, my feelings for you are built to last through the coldest winters. I hope it brings a smile to your face as much as you bring joy to my life ❤️</p>
+        </div>
+        <div class="picture">
+            <img src="https://raw.githubusercontent.com/sharkcores/lizasgiftfromalexey/main/Screenshot_2025-01-09-03-21-16-494_com.miui.mediaviewer.jpg" alt="Snowman for Liza">
+        </div>
     </div>
 
-    <!-- Picture Section -->
-    <div class="picture">
-        <img src="https://drive.google.com/uc?export=view&id=1Db5_IfSgn18jTKJ7Zf-GqK_BOJ6I4ELF" alt="Snowman for Liza">
+    <!-- Paragraph and Image Pair 2 -->
+    <div class="paragraph-image-wrapper">
+        <div class="paragraph">
+            <p>Dear Liza,</p>
+            <p>I built this snowman to show you how much you mean to me. Just like this snowman, my feelings for you are built to last through the coldest winters. I hope it brings a smile to your face as much as you bring joy to my life ❤️</p>
+        </div>
+        <div class="picture">
+            <img src="https://raw.githubusercontent.com/sharkcores/lizasgiftfromalexey/main/Screenshot_2025-01-09-03-21-16-494_com.miui.mediaviewer.jpg" alt="Snowman for Liza">
+        </div>
     </div>
 </div>
 
